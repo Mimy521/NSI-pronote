@@ -1,5 +1,13 @@
 <!DOCTYPE html>
 <html>
+    
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="Visuel.css" />
+    <link rel="shortcut icon" href="" />
+    <title>Pronote</title>
+</head>
+
 <table id="tableau_notes" border="1">
     <thead id="thead">
         <tr>
@@ -12,16 +20,16 @@
     </tbody>
     <tbody id="tb_moyennes">
         <tr>
-            <td>&nbsp;</td>
+            <td class="vide">&nbsp;</td>
             <td>CLASSE</td>
             <td>&nbsp;</td>
         </tr>
     </tbody>
     <tbody id="tb_suppression">
         <tr>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
-            <td>&nbsp;</td>
+            <td class="bouton_supprimer">&nbsp;</td>
+            <td class="bouton_supprimer">&nbsp;</td>
+            <td class="bouton_supprimer">&nbsp;</td>
         </tr>
     </tbody>
 </table>
@@ -42,6 +50,9 @@
         <td>Matière : <input type="text" id="matiere" value="Maths" /></td>
         <td>Coefficient : <input type="text" id="coefficient" value="2" /></td>
         <td><input type="button" value="+" onclick="ajouter_evaluation()"></td>
+    </tr>
+    <tr>
+        <td colspan="3"><input type="button" value="Actualiser" onclick="actualiser()"></td>
     </tr>
 </table>
 

@@ -1,3 +1,4 @@
+coeffs = new Array();
 
 function ajouter_cellule_texte(ligne, texte) {
     nouvelleCellule = ligne.insertCell()
@@ -53,6 +54,9 @@ function ajouter_evaluation() {
         var matiere = document.getElementById("matiere").value
         var coefficient = document.getElementById("coefficient").value
 
+        // On ajoute le coefficient à la liste coeffs
+        coeffs.push(coefficient)
+
         // On ajoute un nouvelle ligne dans l'entête
         var ligneEntete = document.getElementById("thead").rows[0]
         celluleEntete = ligneEntete.insertCell()
@@ -65,9 +69,15 @@ function ajouter_evaluation() {
             inserer_cellule_saisie(tableauEleve.rows[iEleve], indiceNouvelleCellule)
         }
 
+        // On ajoute la case de moyenne de classe par matière
+        var ligneMoyenne = document.getElementById("tb_moyennes").rows[0]
+        ajouter_cellule_texte(ligneMoyenne, "")
+
         // On ajoute le bouton de suppression
         var ligneSuppr = document.getElementById("tb_suppression").rows[0]
         ajouter_cellule_supprimer(ligneSuppr)
+
+        alert(coeffs)
     }
     catch (erreur) {
         alert(erreur)
@@ -75,3 +85,19 @@ function ajouter_evaluation() {
 
 }
 
+function calcul_moyenne_coeff() {
+    try {
+        var notes = new Array ()
+        var tableauEleve = document.getElementById("tb_eleves")
+        for (iNotes = 0; iNotes < tableauEleve.rows.lenght; iNotes++)
+            notes.push(tableauEleve.rows[iNotes].values)
+        for (i = 0; i < coeffs.length; i++)
+            var moyenne = moyenne + (coeffs[i] * notes[i])
+            var total_coeffs = total_coeffs + coeffs[i]
+
+        var resultat = Math.round(moyenne/total_coeffs)
+    }
+    catch(error){
+        alert(error);
+    }
+}

@@ -1,0 +1,19 @@
+/* html{
+    background-color : grey
+}
+
+table{
+    background-color: rgb(187, 196, 67);
+}
+ */
+.vide{
+    border-style : none
+}
+
+.bouton_supprimer{
+    border-style : none;
+    align-items: center;
+    margin: auto;
+    border-radius: 10em;
+    border
+}
